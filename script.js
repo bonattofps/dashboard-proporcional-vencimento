@@ -217,9 +217,7 @@ form.addEventListener('submit', (event) => {
   const dailyValue = monthlyFee / 30;
   const changeType = getChangeType(dayDifference);
   const proportionalAmount = Math.abs(dailyValue * dayDifference);
-  const finalEstimatedValue = changeType === 'desconto'
-    ? monthlyFee - proportionalAmount
-    : monthlyFee + proportionalAmount;
+  const finalEstimatedValue = proportionalAmount;
 
   renderResult({
     monthlyFee,
