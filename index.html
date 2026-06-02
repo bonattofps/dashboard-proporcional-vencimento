@@ -60,6 +60,20 @@
             </div>
 
             <div class="form-group">
+              <label for="current-due-month">Mês atual de vencimento</label>
+              <input
+                type="month"
+                id="current-due-month"
+                name="currentDueMonth"
+                aria-describedby="date-error"
+                required
+              >
+            </div>
+          </div>
+
+          <div class="form-row">
+
+            <div class="form-group">
               <label for="new-due-day">Nova data de vencimento</label>
               <select id="new-due-day" name="newDueDay">
                 <option value="1">Dia 1</option>
@@ -70,7 +84,19 @@
                 <option value="25">Dia 25</option>
               </select>
             </div>
+
+            <div class="form-group">
+              <label for="new-due-month">Mês da nova data</label>
+              <input
+                type="month"
+                id="new-due-month"
+                name="newDueMonth"
+                aria-describedby="date-error"
+                required
+              >
+            </div>
           </div>
+          <small id="date-error" class="error-message" aria-live="polite"></small>
 
           <button type="submit" class="calculate-button">
             <span aria-hidden="true">%</span>
@@ -90,7 +116,7 @@
 
         <div id="empty-state" class="empty-state">
           <div class="empty-icon" aria-hidden="true">%</div>
-          <p>Informe os dados ao lado e clique em calcular para visualizar o proporcional.</p>
+          <p>Informe valor, dia e mês de cada vencimento para visualizar o proporcional.</p>
         </div>
 
         <!-- Card preenchido pelo JavaScript após um cálculo válido. -->
