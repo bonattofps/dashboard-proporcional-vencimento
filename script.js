@@ -18,35 +18,11 @@ const summaryDayDifference = document.getElementById('summary-day-difference');
 const summaryDailyValue = document.getElementById('summary-daily-value');
 const summaryChangeType = document.getElementById('summary-change-type');
 const summaryFinalValue = document.getElementById('summary-final-value');
-const themeToggle = document.getElementById('theme-toggle');
-const themeToggleText = document.getElementById('theme-toggle-text');
 
 const currencyFormatter = new Intl.NumberFormat('pt-BR', {
   style: 'currency',
   currency: 'BRL'
 });
-
-function applyTheme(theme) {
-  document.body.dataset.theme = theme;
-  localStorage.setItem('dashboard-theme', theme);
-
-  const isDark = theme === 'dark';
-  themeToggle.setAttribute('aria-pressed', String(isDark));
-  themeToggle.setAttribute('aria-label', isDark ? 'Alternar para tema claro' : 'Alternar para tema escuro');
-  themeToggleText.textContent = isDark ? 'Tema claro' : 'Tema escuro';
-}
-
-function getInitialTheme() {
-  const savedTheme = localStorage.getItem('dashboard-theme');
-
-  if (savedTheme === 'light' || savedTheme === 'dark') {
-    return savedTheme;
-  }
-
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-}
-
-applyTheme(getInitialTheme());
 
 function parseBrazilianCurrency(value) {
   const compactValue = value
@@ -193,9 +169,4 @@ form.addEventListener('submit', (event) => {
 
 monthlyFeeInput.addEventListener('input', () => {
   monthlyFeeError.textContent = '';
-});
-
-themeToggle.addEventListener('click', () => {
-  const nextTheme = document.body.dataset.theme === 'dark' ? 'light' : 'dark';
-  applyTheme(nextTheme);
 });
